@@ -2,9 +2,99 @@
 @tailwind components;
 @tailwind utilities;
 
-/* (Opcional) Ajustes globales */
+/* Ajustes globales */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* === Theme tokens === */
+:root{
+  --bg: #0b0b10;
+  --glass: rgba(255,255,255,0.06);
+  --stroke: rgba(255,255,255,0.14);
+  --txt: #e8e8ee;
+  --muted: #a5a7b7;
+
+  /* neones */
+  --pink: #ff4dd2;
+  --violet: #9b5cff;
+  --cyan: #47e7ff;
+  --lime: #d6ff4c;
+}
+
+/* Fondo global con gradiente y ruido sutil */
+body{
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(255,77,210,.15), transparent 60%),
+    radial-gradient(800px 500px at -10% 20%, rgba(71,231,255,.12), transparent 55%),
+    linear-gradient(180deg, #0b0b10 0%, #0d0d15 100%);
+  color: var(--txt);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Tipografía display para títulos */
+.title-display{
+  font-family: "Bebas Neue", Inter, sans-serif;
+  letter-spacing: .02em;
+}
+
+/* Glassmorphism base */
+.glass{
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--stroke);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+/* Botón neón */
+.btn-neon{
+  @apply inline-flex items-center gap-2 px-5 py-3 rounded-2xl font-semibold;
+  color: black;
+  background: linear-gradient(90deg, var(--pink), var(--violet), var(--cyan));
+  background-size: 200% 200%;
+  animation: glowMove 6s ease-in-out infinite;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset, 0 10px 30px rgba(0,0,0,.35);
+}
+.btn-neon:hover{ filter: brightness(1.1); }
+
+/* Tarjeta con borde brillante al hover */
+.card-neo{
+  @apply rounded-3xl p-5 relative overflow-hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.12);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+}
+.card-neo::after{
+  content:""; position:absolute; inset:-1px; border-radius:inherit;
+  background: conic-gradient(from 180deg, transparent 0 30%, rgba(255,77,210,.35), rgba(71,231,255,.35), transparent 70% 100%);
+  filter: blur(14px); opacity: 0; transition: opacity .35s;
+}
+.card-neo:hover{ transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.45); }
+.card-neo:hover::after{ opacity: .9; }
+
+/* Marquee/shine */
+.shimmer{
+  position: relative; overflow: hidden;
+}
+.shimmer::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(120deg, transparent 0 40%, rgba(255,255,255,.12) 50%, transparent 60% 100%);
+  transform: translateX(-120%);
+  animation: shimmer 4s infinite;
+}
+
+/* Keyframes */
+@keyframes glowMove{
+  0%{ background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
+}
+@keyframes shimmer{
+  0%{ transform: translateX(-120%); }
+  60%{ transform: translateX(120%); }
+  100%{ transform: translateX(120%); }
+}
 
 
 
