@@ -9,8 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
   <!-- NAVBAR glass -->
   <header class="fixed top-0 left-0 right-0 z-50">
     <nav class="glass mx-auto max-w-6xl mt-4 rounded-2xl px-4 py-3 flex items-center">
-      <div class="title-display text-2xl">CAMILO<span class="text-pink-400">·</span>DEV</div>
-      <div class="ml-auto hidden md:flex gap-2">
+        <div class="ml-auto hidden md:flex gap-2">
         <a class="px-4 py-2 rounded-xl hover:bg-white/5" href="#projects">Proyectos</a>
         <a class="px-4 py-2 rounded-xl hover:bg-white/5" href="#about">Sobre mí</a>
         <a class="px-4 py-2 rounded-xl hover:bg-white/5" href="#contact">Contacto</a>
@@ -77,10 +76,17 @@ import { MatButtonModule } from '@angular/material/button';
           <p class="mt-2 text-[color:var(--muted)]">
             Login/registro, KPIs, tabla de usuarios, gráficos.
           </p>
-          <div class="mt-5 flex gap-3">
-            <a class="btn-neon" href="#" target="_blank" rel="noopener">Demo</a>
-            <a class="px-5 py-3 rounded-2xl border border-white/15 hover:bg-white/5"
-               href="#" target="_blank" rel="noopener">GitHub</a>
+          <div class="mt-5 flex gap-3 relative z-10">
+            <a class="btn-neon flex items-center gap-2 z-10" 
+              href="https://admin-dashboard-pinz.netlify.app"
+              target="_blank" rel="noopener noreferrer">
+              <span class="material-icons text-sm">play_arrow</span>Demo
+            </a>
+            <a class="px-5 py-3 rounded-2xl border border-white/15 hover:bg-white/5 flex items-center gap-2 z-10"
+               href="https://github.com/pinzii/admin-dashboard"
+               target="_blank" rel="noopener noreferrer">
+               <span class="material-icons text-sm">code</span> GitHub
+            </a>
           </div>
         </article>
 
@@ -93,10 +99,16 @@ import { MatButtonModule } from '@angular/material/button';
           <p class="mt-2 text-[color:var(--muted)]">
             Listado de productos, filtros y ordenamiento con Material.
           </p>
-          <div class="mt-5 flex gap-3">
-            <a class="btn-neon" href="#" target="_blank" rel="noopener">Demo</a>
-            <a class="px-5 py-3 rounded-2xl border border-white/15 hover:bg-white/5"
-               href="#" target="_blank" rel="noopener">GitHub</a>
+          <div class="mt-5 flex gap-3 relative z-10">
+            <a class="btn-neon flex items-center gap-2 z-10"
+              href="https://app-product-manager.netlify.app" 
+              target="_blank" rel="noopener noreferrer">
+              <span class="material-icons text-sm">play_arrow</span> Demo
+            </a>
+            <a class="px-5 py-3 rounded-2xl border border-white/15 hover:bg-white/5 flex items-center gap-2 z-10"
+               href="https://github.com/pinzii/product-manager-app" 
+               target="_blank" rel="noopener noreferrer">
+               <span class="material-icons text-sm">code</span>GitHub</a>
           </div>
         </article>
       </div>
@@ -131,7 +143,7 @@ import { MatButtonModule } from '@angular/material/button';
   </section>
 
   <footer class="px-6 pb-10 text-center text-sm text-[color:var(--muted)]">
-    © {{year}} Camilo Pinzón — Angular · Material · Tailwind
+    © {{year}} Felipe Pinzón — Angular · Material · Tailwind
   </footer>
   `,
   styles: [``]

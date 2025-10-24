@@ -96,5 +96,16 @@ body{
   100%{ transform: translateX(120%); }
 }
 
+/* Evitar que las capas decorativas bloqueen clics */
+.card-neo::after,
+.shimmer::after {
+  pointer-events: none;
+}
+
+/* Si tienes capas .absolute solo para efectos dentro de .card-neo */
+.card-neo .absolute {
+  pointer-events: none;
+}
+
 
 
