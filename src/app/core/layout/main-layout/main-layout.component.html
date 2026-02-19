@@ -1,1 +1,50 @@
-<p>main-layout works!</p>
+<mat-sidenav-container class="layout-container">
+  <mat-sidenav #sidenav mode="side" opened class="layout-sidenav">
+    <div class="brand px-3 py-3">
+      <div class="brand-title">Mi Portafolio</div>
+      <div class="brand-subtitle">Angular + Material + Bootstrap</div>
+    </div>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon class="me-2">home</mat-icon>
+        Inicio
+      </a>
+
+      <a mat-list-item routerLink="projects" routerLinkActive="active-link">
+        <mat-icon class="me-2">work</mat-icon>
+        Proyectos
+      </a>
+
+      <a mat-list-item routerLink="about" routerLinkActive="active-link">
+        <mat-icon class="me-2">person</mat-icon>
+        Sobre mí
+      </a>
+
+      <a mat-list-item routerLink="contact" routerLinkActive="active-link">
+        <mat-icon class="me-2">mail</mat-icon>
+        Contacto
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="layout-toolbar">
+      <button mat-icon-button (click)="sidenav.toggle()" class="d-md-none" aria-label="Toggle sidenav">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span class="ms-2 fw-semibold">Portafolio</span>
+
+      <span class="spacer"></span>
+
+      <a class="btn btn-outline-light btn-sm" routerLink="projects">Ver proyectos</a>
+    </mat-toolbar>
+
+    <main class="layout-content py-4">
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
