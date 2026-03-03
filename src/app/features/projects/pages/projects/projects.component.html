@@ -1,1 +1,12 @@
-<p>projects works!</p>
+<h2 class="h4 mb-3">Proyectos</h2>
+
+<div class="row g-3">
+  <div class="col-12 col-md-6" *ngFor="let p of (projects$ | async)">
+    <mat-card class="h-100">
+      <mat-card-content>
+        <div class="fw-semibold fs-5">{{ p.title }}</div>
+        <div class="text-muted mt-1">{{ p.description }}</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
