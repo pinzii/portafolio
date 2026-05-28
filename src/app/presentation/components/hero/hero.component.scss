@@ -1,0 +1,220 @@
+// Variables locales (Idealmente luego irán en un archivo global)
+$color-bg: #0a0a0f;
+$color-text: #f0f0f0;
+$color-primary: #4f46e5; // Índigo
+$color-success: #22c55e;
+$font-serif: 'Instrument Serif', serif; // Asegúrate de importar esta fuente en tu index.html
+$font-sans: 'Inter', sans-serif;
+$font-mono: 'Fira Code', monospace;
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background-color: $color-bg;
+  color: $color-text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: $font-sans;
+}
+
+// El efecto de aurora boreal de fondo
+.aurora-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60vw;
+  height: 60vh;
+  transform: translate(-20%, -50%);
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.3) 0%, rgba(34, 197, 94, 0.1) 50%, transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  
+  // Layout sugerido: Split Cinematic
+  display: grid;
+  grid-template-columns: 1fr; // Móvil por defecto
+  gap: 3rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2rem, 8vw, 6rem);
+    align-items: center;
+  }
+}
+
+// --- LADO IZQUIERDO ---
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .eyebrow {
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba($color-text, 0.7);
+  }
+
+  .main-title {
+    font-family: $font-serif;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    line-height: 0.95;
+    margin: 0;
+    color: #ffffff;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba($color-text, 0.8);
+    max-width: 85%;
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+
+    button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: rgba($color-primary, 0.2);
+      color: white;
+      border: 1px solid rgba($color-primary, 0.5);
+      // El resplandor índigo que solicitaste
+      box-shadow: 0 0 40px -10px rgba($color-primary, 0.6);
+      backdrop-filter: blur(10px);
+
+      &:hover {
+        background: rgba($color-primary, 0.4);
+        box-shadow: 0 0 50px -5px rgba($color-primary, 0.8);
+      }
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: $color-text;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: $color-success;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba($color-success, 0.7);
+      animation: pulse 2s infinite;
+    }
+  }
+}
+
+// Animación del pulso
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba($color-success, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba($color-success, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba($color-success, 0); }
+}
+
+// --- LADO DERECHO: TERMINAL GLASS ---
+.hero-terminal-wrapper {
+  perspective: 1000px;
+}
+
+.glass-terminal {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  
+  // Glasmorphism adaptativo
+  background: rgba(20, 20, 50, 0.6); // Fallback móvil
+  
+  @media (min-width: 1024px) {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .terminal-header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    .window-controls {
+      display: flex;
+      gap: 6px;
+      margin-right: 1.5rem;
+
+      .control {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        &.close { background: #ff5f56; }
+        &.minimize { background: #ffbd2e; }
+        &.maximize { background: #27c93f; }
+      }
+    }
+
+    .tab {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-family: $font-sans;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+
+  .terminal-body {
+    padding: 1.5rem;
+    font-family: $font-mono;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-x: auto;
+
+    // Colores de sintaxis tipo "Vitesse Dark" / "Poimandres"
+    pre { margin: 0; }
+    .comment { color: #6b7280; font-style: italic; }
+    .keyword { color: #c678dd; }
+    .class { color: #e5c07b; }
+    .function { color: #61afef; }
+    .string { color: #98c379; }
+    .property { color: #e06c75; }
+  }
+}

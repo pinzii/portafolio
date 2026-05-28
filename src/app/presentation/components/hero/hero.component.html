@@ -1,0 +1,63 @@
+<section class="hero-section">
+  <div class="aurora-bg"></div>
+
+  <div class="hero-container">
+    <div class="hero-content">
+      <p class="eyebrow">PORTAFOLIO / 2026 — FELIPE PINZÓN, SOFTWARE ENGINEERING STUDENT</p>
+      <h1 class="main-title">FRONTEND.<br>CRAFTED<br>WITH CODE.</h1>
+      <p class="subtitle">
+        Construyendo interfaces con Angular, TypeScript e intuición de diseño. 
+        Código limpio, arquitectura sólida y enfoque en la experiencia de usuario.
+      </p>
+
+      <div class="actions">
+        <button class="btn-primary">
+          Ver proyectos <span class="arrow">→</span>
+        </button>
+        <button class="btn-secondary">
+          Descargar CV
+        </button>
+      </div>
+
+      <div class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span class="status-text">Open to internships / roles</span>
+      </div>
+    </div>
+
+    <div class="hero-terminal-wrapper">
+      <div class="glass-terminal">
+        <div class="terminal-header">
+          <div class="window-controls">
+            <span class="control close"></span>
+            <span class="control minimize"></span>
+            <span class="control maximize"></span>
+          </div>
+          <div class="tab">
+            <span class="icon">📄</span> hero.component.ts
+          </div>
+        </div>
+        
+        <div class="terminal-body">
+<pre><code><span class="comment">// Angular Standalone Component</span>
+<span class="keyword">import</span> &#123; <span class="class">Component</span> &#125; <span class="keyword">from</span> <span class="string">'&commat;angular/core'</span>;
+
+&commat;<span class="function">Component</span>(&#123;
+  <span class="property">selector</span>: <span class="string">'app-hero'</span>,
+  <span class="property">standalone</span>: <span class="keyword">true</span>,
+  <span class="property">templateUrl</span>: <span class="string">'./hero.component.html'</span>,
+  <span class="property">styleUrl</span>: <span class="string">'./hero.component.scss'</span>
+&#125;)
+<span class="keyword">export class</span> <span class="class">HeroComponent</span> &#123;
+  <span class="property">developer</span> = <span class="string">'Felipe'</span>;
+  <span class="property">skills</span> = [<span class="string">'Angular'</span>, <span class="string">'TypeScript'</span>, <span class="string">'Clean Architecture'</span>];
+  
+  <span class="function">buildAwesomeUI</span>() &#123;
+    <span class="keyword">return</span> <span class="keyword">this</span>.skills.<span class="function">map</span>(skill => skill.<span class="function">optimize</span>());
+  &#125;
+&#125;</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
