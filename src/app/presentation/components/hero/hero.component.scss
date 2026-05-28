@@ -3,35 +3,38 @@ $color-bg: #0a0a0f;
 $color-text: #f0f0f0;
 $color-primary: #4f46e5; // Índigo
 $color-success: #22c55e;
-$font-serif: 'Instrument Serif', serif; // Asegúrate de importar esta fuente en tu index.html
+$font-serif: 'Instrument Serif', serif;
 $font-sans: 'Inter', sans-serif;
 $font-mono: 'Fira Code', monospace;
 
 .hero-section {
   position: relative;
-  min-height: 100vh;
-  background-color: $color-bg;
+  min-height: 100vh;   
   color: $color-text;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   font-family: $font-sans;
+
+  // Añadimos un overlay oscuro para asegurar que el texto blanco siga siendo legible
+  &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /* Ajusté un poco el gradiente para que el negro no sea tan opresivo y deje ver más las estrellas */
+      background: linear-gradient(
+        to right, 
+        rgba(10, 10, 15, 0.99) 0%,   
+        rgba(10, 10, 15, 0.2) 100%  
+      );
+      z-index: 0;
+    }
 }
 
-// El efecto de aurora boreal de fondo
-.aurora-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60vw;
-  height: 60vh;
-  transform: translate(-20%, -50%);
-  background: radial-gradient(circle, rgba(79, 70, 229, 0.3) 0%, rgba(34, 197, 94, 0.1) 50%, transparent 70%);
-  filter: blur(80px);
-  z-index: 0;
-  pointer-events: none;
-}
 
 .hero-container {
   position: relative;
@@ -41,7 +44,7 @@ $font-mono: 'Fira Code', monospace;
   margin: 0 auto;
   padding: 2rem;
   
-  // Layout sugerido: Split Cinematic
+  // Layout: Split Cinematic
   display: grid;
   grid-template-columns: 1fr; // Móvil por defecto
   gap: 3rem;
@@ -100,7 +103,7 @@ $font-mono: 'Fira Code', monospace;
       background: rgba($color-primary, 0.2);
       color: white;
       border: 1px solid rgba($color-primary, 0.5);
-      // El resplandor índigo que solicitaste
+      // Resplandor índigo 
       box-shadow: 0 0 40px -10px rgba($color-primary, 0.6);
       backdrop-filter: blur(10px);
 
@@ -152,17 +155,17 @@ $font-mono: 'Fira Code', monospace;
 }
 
 .glass-terminal {
-  border-radius: 16px;
+  border-radius: 30px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(89, 19, 229, 0.458);
+  box-shadow: 0 25px 50px -12px rgba(61, 10, 230, 0.111);
   
   // Glasmorphism adaptativo
   background: rgba(20, 20, 50, 0.6); // Fallback móvil
   
   @media (min-width: 1024px) {
     background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
-    backdrop-filter: blur(24px);
+    backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(24px);
   }
 
@@ -210,11 +213,11 @@ $font-mono: 'Fira Code', monospace;
 
     // Colores de sintaxis tipo "Vitesse Dark" / "Poimandres"
     pre { margin: 0; }
-    .comment { color: #6b7280; font-style: italic; }
+    .comment { color: #7f97c7; font-style: italic; }
     .keyword { color: #c678dd; }
     .class { color: #e5c07b; }
     .function { color: #61afef; }
-    .string { color: #98c379; }
+    .string { color: #7ec849; }
     .property { color: #e06c75; }
   }
 }

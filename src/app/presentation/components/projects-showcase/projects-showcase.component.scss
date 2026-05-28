@@ -1,0 +1,235 @@
+// Variables globales (Reutilizando el estilo del Hero)
+$color-bg: #0e0f0a;
+$color-text: #f0f0f0;
+$color-primary: #4f46e5;
+$color-accent: #c678dd;
+$font-serif: 'Instrument Serif', serif;
+$font-sans: 'Inter', sans-serif;
+
+.showcase-section {
+  position: relative;
+  min-height: 100vh;
+  background-color: rgba(10, 10, 15, 0.6);
+  color: $color-text;
+  padding: 3rem 2rem;
+  font-family: $font-sans;
+  z-index: 10; // Para que pase por encima del Hero al hacer scroll
+}
+
+.showcase-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+
+  // Split Editorial Desktop
+  @media (min-width: 1024px) {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(3rem, 6vw, 8rem);
+    align-items: start;
+  }
+}
+
+/* =========================================
+   LADO IZQUIERDO: ÍNDICE EDITORIAL
+   ========================================= */
+.index-column {
+  position: sticky;
+  top: 2rem; // Se queda fijo mientras haces scroll en la lista
+  
+  .section-title {
+    font-family: $font-serif;
+    font-size: 3rem;
+    color: rgba($color-text, 0.6);
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .index-item {
+    position: relative;
+    padding: 2rem 0;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
+    opacity: 0.4; // Apagados por defecto
+
+    &:hover {
+      opacity: 0.7;
+      padding-left: 1rem; // Pequeño empujón al hacer hover
+    }
+
+    &.active {
+      opacity: 1;
+      padding-left: 1.5rem;
+      
+      .indicator-line {
+        width: 100%;
+        background: linear-gradient(90deg, $color-primary, $color-accent);
+        box-shadow: 0 0 20px rgba($color-primary, 0.5);
+      }
+    }
+
+    .project-name {
+      font-family: $font-serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      margin: 0 0 0.5rem 0;
+      line-height: 1;
+      font-weight: normal;
+    }
+
+    .project-meta {
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-family: $font-sans;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      .dot { color: $color-primary; }
+    }
+
+    .indicator-line {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: transparent;
+      transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+    }
+  }
+}
+
+/* =========================================
+   LADO DERECHO: LIVE PREVIEW (GLASS)
+   ========================================= */
+.preview-column {
+  position: relative;
+  perspective: 1000px; // Para el efecto tilt si lo deseamos luego
+}
+
+.glow-backdrop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba($color-primary, 0.4) 0%, rgba($color-accent, 0.2) 50%, transparent 70%);
+  filter: blur(60px);
+  z-index: 0;
+  transition: all 0.5s ease;
+}
+
+.glass-preview-card {
+  position: relative;
+  z-index: 1;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(20, 20, 30, 0.4);
+  border: 1px solid rgba(11, 3, 120, 0.904);
+  box-shadow: 0 30px 60px -15px rgba(24, 1, 107, 0.163);
+  
+  // Magia Glasmorphism
+  @media (min-width: 1024px) {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .mockup-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: #000;
+    
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+
+      &:hover {
+        transform: scale(1.05); // Efecto zoom suave
+      }
+    }
+  }
+
+  .preview-details {
+    padding: 1rem;
+
+    .preview-title {
+      font-family: $font-serif;
+      font-size: 2.7rem;
+      margin: 0 0 1rem 0;
+      font-weight: normal;
+    }
+
+    .preview-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba($color-text, 0.7);
+      margin-bottom: 1.3rem;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.2rem;
+
+      .tech-pill {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+        border-radius: 50px;
+        background: rgba(46, 0, 48, 0.299);
+        border: 1px solid rgba(171, 0, 177, 0.259);
+        color: rgba($color-text, 0.9);
+      }
+    }
+
+    .preview-actions {
+      display: flex;
+      gap: 1rem;
+
+      a {
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+      }
+
+      .btn-demo {
+        background: rgba($color-primary, 0.2);
+        color: white;
+        border: 1px solid rgba($color-primary, 0.5);
+        box-shadow: 0 0 20px -5px rgba($color-primary, 0.4);
+
+        &:hover {
+          background: rgba($color-primary, 0.4);
+          box-shadow: 0 0 30px -5px rgba($color-primary, 0.6);
+        }
+      }
+
+      .btn-github {
+        background: transparent;
+        color: $color-text;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+}

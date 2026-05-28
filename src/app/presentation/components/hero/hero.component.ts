@@ -8,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class HeroComponent {
 
+  scrollToProjects() {
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

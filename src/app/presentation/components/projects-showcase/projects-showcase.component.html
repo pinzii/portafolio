@@ -1,0 +1,59 @@
+<section class="showcase-section" id="projects">
+  <div class="showcase-container">
+    
+    <div class="index-column">
+      <h2 class="section-title">Projects</h2>
+      
+      <div class="projects-list">
+        @for (project of projects(); track project.id) {
+          <div 
+            class="index-item" 
+            [class.active]="selectedProject().id === project.id"
+            (mouseenter)="selectProject(project)"
+            (click)="selectProject(project)">
+            
+            <h3 class="project-name">{{ project.title }}</h3>
+            <div class="project-meta">
+              <span class="year">{{ project.year }}</span>
+              <span class="dot">•</span>
+              <span class="role">{{ project.role }}</span>
+            </div>
+            
+            <div class="indicator-line"></div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="preview-column">
+      <div class="glow-backdrop"></div>
+      
+      <div class="glass-preview-card">
+        <div class="mockup-container">
+          <img [src]="selectedProject().coverUrl" [alt]="selectedProject().title" class="project-image" loading="lazy">
+        </div>
+
+        <div class="preview-details">
+          <h4 class="preview-title">{{ selectedProject().title }}</h4>
+          <p class="preview-desc">{{ selectedProject().description }}</p>
+          
+          <div class="tech-stack">
+            @for (tech of selectedProject().stack; track tech) {
+              <span class="tech-pill">{{ tech }}</span>
+            }
+          </div>
+
+          <div class="preview-actions">
+            @if (selectedProject().links.demo) {
+              <a [href]="selectedProject().links.demo" target="_blank" class="btn-demo">View Live ↗</a>
+            }
+            @if (selectedProject().links.github) {
+              <a [href]="selectedProject().links.github" target="_blank" class="btn-github">Repository</a>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
