@@ -13,7 +13,7 @@ export class ProjectService {
       description: 'Sistema de software para el sector salud enfocado en la gestión ágil de citas médicas. Arquitectura orientada a microservicios y escalabilidad.',
       stack: ['Angular', 'TypeScript', 'Microservices', 'Clean Architecture'],
       links: { demo: 'https://saludya-app.netlify.app', github: '#' },
-      coverUrl: '',
+      coverUrl: '/images/saludYa.jpg',
       year: 2026,
       role: 'Lead Developer'
     },
@@ -23,7 +23,7 @@ export class ProjectService {
       description: 'Panel de control administrativo moderno e intuitivo, construido con componentes reutilizables y un fuerte enfoque en el rendimiento de la interfaz (UI/UX).',
       stack: ['Angular', 'Angular Material','JSON Server (simulación de base de datos)', 'SCSS', 'RxJS', 'TypeScript', 'Netlify (hosting frontend)', 'Render (hosting backend)'],
       links: { demo: 'https://admin-dashboard-pinz19.netlify.app', github: '#' },
-      coverUrl: '',
+      coverUrl: '/images/admin-app.jpg',
       year: 2025,
       role: 'Frontend Engineer'
     },
@@ -33,7 +33,7 @@ export class ProjectService {
       description: 'Aplicación web para la administración integral del ciclo de vida de productos. Interfaces limpias, manejo de estado eficiente y diseño responsivo.',
       stack: ['Angular', 'TypeScript', ' RxJS', 'Angular Material (MDC)', 'NgRx (Store + Effects)', 'Netlify (hosting frontend)', 'Render (hosting backend)'],
       links: { demo: 'https://app-product-manager.netlify.app', github: '#' },
-      coverUrl: '',
+      coverUrl: '/images/product-app.jpg',
       year: 2025,
       role: 'Frontend Engineer'
     }

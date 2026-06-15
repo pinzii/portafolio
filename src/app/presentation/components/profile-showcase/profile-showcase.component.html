@@ -1,0 +1,51 @@
+<section class="profile-section" id="profile">
+  <div class="profile-container">
+    <h2 class="section-title">Education <span>& Skills</span></h2>
+
+    <div class="bento-grid">
+      
+      <div class="bento-card education-card">
+        <h3 class="card-title">Formación Académica</h3>
+        <div class="items-list">
+          @for (degree of degrees(); track degree.id) {
+            <div class="list-item">
+              <div class="item-icon">🎓</div>
+              <div class="item-content">
+                <h4>{{ degree.title }}</h4>
+                <p class="institution">{{ degree.institution }}</p>
+                <span class="year-badge">{{ degree.year }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="bento-card skills-card">
+        <h3 class="card-title">Tech Stack & Core</h3>
+        <div class="skills-container">
+          @for (skill of skills(); track skill.name) {
+            <div class="skill-pill" [class]="skill.category">
+              {{ skill.name }}
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="bento-card certs-card">
+        <h3 class="card-title">Certificaciones Destacadas</h3>
+        <div class="certs-grid">
+          @for (cert of certificates(); track cert.id) {
+            <div class="cert-item">
+              <div class="cert-indicator"></div>
+              <div class="cert-details">
+                <h4>{{ cert.title }}</h4>
+                <p>{{ cert.institution }} • {{ cert.year }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -28,8 +28,8 @@ $font-mono: 'Fira Code', monospace;
       /* Ajusté un poco el gradiente para que el negro no sea tan opresivo y deje ver más las estrellas */
       background: linear-gradient(
         to right, 
-        rgba(10, 10, 15, 0.99) 0%,   
-        rgba(10, 10, 15, 0.2) 100%  
+        rgba(10, 10, 15, 0.2) 0%,   
+        rgba(10, 10, 15, 0.9) 100%  
       );
       z-index: 0;
     }
@@ -161,12 +161,12 @@ $font-mono: 'Fira Code', monospace;
   box-shadow: 0 25px 50px -12px rgba(61, 10, 230, 0.111);
   
   // Glasmorphism adaptativo
-  background: rgba(20, 20, 50, 0.6); // Fallback móvil
+  background: rgba(20, 20, 50, 0.4); // Fallback móvil
   
   @media (min-width: 1024px) {
-    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(24px);
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(62, 60, 60, 0.088) 100%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(23px);
   }
 
   .terminal-header {
