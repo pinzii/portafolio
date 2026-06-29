@@ -11,7 +11,7 @@ export class ProjectService {
       id: 'p1',
       title: 'SaludYa',
       description: 'Sistema de software para el sector salud enfocado en la gestión ágil de citas médicas. Arquitectura orientada a microservicios y escalabilidad.',
-      stack: ['Angular', 'TypeScript', 'Microservices', 'Clean Architecture'],
+      stack: ['Angular', 'TypeScript', 'Bootstrap', 'Microservices', 'Clean Architecture', 'RxJS', 'Angular ROuter', 'Angular HttpCLient', 'Vitest', 'Prettier', 'Nginx', 'Netlify (hosting frontend)', 'Render (hosting backend)'],
       links: { demo: 'https://saludya-app.netlify.app', github: '#' },
       coverUrl: '/images/saludYa.jpg',
       year: 2026,
