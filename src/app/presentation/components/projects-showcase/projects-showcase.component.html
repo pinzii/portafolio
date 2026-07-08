@@ -46,9 +46,15 @@
           <div class="preview-actions">
             @if (selectedProject().links.demo) {
               <a [href]="selectedProject().links.demo" target="_blank" class="btn-demo">View Live ↗</a>
-            }
+            }            
             @if (selectedProject().links.github) {
               <a [href]="selectedProject().links.github" target="_blank" class="btn-github">Repository</a>
+            }
+            @if (selectedProject().links.githubFrontend) {
+              <a [href]="selectedProject().links.githubFrontend" target="_blank" class="btn-github">Frontend Repo</a>
+            }
+            @if (selectedProject().links.githubBackend) {
+              <a [href]="selectedProject().links.githubBackend" target="_blank" class="btn-github">Backend Repo</a>
             }
           </div>
         </div>
